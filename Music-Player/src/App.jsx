@@ -13,6 +13,8 @@ function App() {
   const [favorites, setFavorites] = useState([]);
   const [showFavorites, setShowFavorites] = useState(false);
   
+  const [isPlaying, setIsPlaying] = useState(false);
+
    //add to favourites
   const addToFavorites = (track) => {
     if (!favorites.find((fav) => fav.id === track.id)) {
@@ -30,6 +32,19 @@ function App() {
     console.log(" Removed from favorites:", trackId);
   };
 
+  //  Play/Pause toggle
+  const playTrack = (track) => {
+    if (currentTrack?.id === track.id) {
+      // If clicking the same track, toggle play/pause
+      setIsPlaying(!isPlaying);
+    } else {
+      // If it's a new track, start playing it
+      setCurrentTrack(track);
+      setIsPlaying(true);
+    }
+  };
+
+
   return (
     <div className="bg-white min-h-screen text-black pb-24">
       <Navbar showFavorites={showFavorites} setShowFavorites={setShowFavorites} />
@@ -41,6 +56,9 @@ function App() {
             tracks={tracks}
             setCurrentTrack={setCurrentTrack}
             addToFavorites={addToFavorites}
+            playTrack={playTrack}       
+            currentTrack={currentTrack} 
+            isPlaying={isPlaying} 
           />
         </>
       ) : (
@@ -50,7 +68,10 @@ function App() {
         />
       )}
 
-      <Player currentTrack={currentTrack} />
+      <Player currentTrack={currentTrack}
+      isPlaying={isPlaying} 
+  setIsPlaying={setIsPlaying}
+      />
     </div>
   );
 }

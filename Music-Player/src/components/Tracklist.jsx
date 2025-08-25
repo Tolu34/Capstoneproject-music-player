@@ -1,8 +1,14 @@
 import React from "react";
 
-export default function TrackList({ tracks, setCurrentTrack, addToFavorites }) {
+export default function TrackList({ 
+  tracks, 
+  playTrack, 
+  addToFavorites, 
+  currentTrack, 
+  isPlaying 
+}) {
   if (tracks.length === 0) {
-    return <p className="p-4 text-gray-500">No tracks found 🎵</p>;
+    return <p className="p-4 text-gray-500">No tracks found </p>;
   }
 
   return (
@@ -14,7 +20,7 @@ export default function TrackList({ tracks, setCurrentTrack, addToFavorites }) {
         >
           <div
             className="flex items-center gap-3 cursor-pointer"
-            onClick={() => setCurrentTrack(track)}
+            onClick={() => playTrack(track)}
           >
             <img
               src={track.album?.cover_medium}
@@ -27,11 +33,13 @@ export default function TrackList({ tracks, setCurrentTrack, addToFavorites }) {
             </div>
           </div>
 
-          <button 
-              onClick={() => setCurrentTrack(track)} 
-                 className="bg-green-500 text-white px-2 py-1 rounded">
-                    ▶ 
-                    </button>
+          {/*  Play/Pause toggle */}
+          <button
+            onClick={() => playTrack(track)}
+            className="bg-green-500 text-white px-2 py-1 rounded"
+          >
+            {currentTrack?.id === track.id && isPlaying ? "⏸" : "▶"}
+          </button>
 
           {/* Favorite button */}
           <button

@@ -1,4 +1,6 @@
+
 {
+
   "id": 3135556,
   "title": "Harder, Better, Faster, Stronger",
   "preview": "https://cdns-preview-b.dzcdn.net/stream/c-b.mp3",
@@ -6,4 +8,10 @@
   "album": {
     "cover_medium": "https://e-cdns-images.dzcdn.net/images/cover/xxxx.jpg"
   }
+}
+
+scripts: {
+  "dev": "vite",
+  "build": "vite build",
+  "preview": "vite preview"
 }

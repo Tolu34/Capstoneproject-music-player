@@ -1,27 +1,29 @@
-import React from "react"
-import { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 
-export default function Player({ currentTrack }) {
+export default function Player({ currentTrack, isPlaying, setIsPlaying }) {
   const audioRef = useRef(null);
-  const [isPlaying, setIsPlaying] = useState(false);
 
+  // Load new track when currentTrack changes
   useEffect(() => {
     if (currentTrack && audioRef.current) {
-      audioRef.current.src = currentTrack.preview; 
-      audioRef.current.play();
-      setIsPlaying(true);
+      audioRef.current.src = currentTrack.preview;
+      if (isPlaying) {
+        audioRef.current.play();
+      } else {
+        audioRef.current.pause();
+      }
     }
   }, [currentTrack]);
 
-  const togglePlay = () => {
+  // Sync play/pause when isPlaying changes
+  useEffect(() => {
     if (!audioRef.current) return;
     if (isPlaying) {
-      audioRef.current.pause();
-    } else {
       audioRef.current.play();
+    } else {
+      audioRef.current.pause();
     }
-    setIsPlaying(!isPlaying);
-  };
+  }, [isPlaying]);
 
   if (!currentTrack) return null;
 
@@ -29,17 +31,17 @@ export default function Player({ currentTrack }) {
     <div className="fixed bottom-12 left-0 w-full bg-gray-100 p-4 flex items-center justify-between rounded-lg">
       <div className="flex items-center gap-3">
         <img
-          src={currentTrack.album?.cover_medium}   // ✅ Deezer album cover
+          src={currentTrack.album?.cover_medium}
           alt={currentTrack.title}
           className="w-12 h-12 rounded"
         />
         <div>
-          <p className="font-semibold">{currentTrack.title}</p>  {/* song title */}
-          <p className="text-sm text-gray-500">{currentTrack.artist?.name}</p> {/*  artist name */}
+          <p className="font-semibold">{currentTrack.title}</p>
+          <p className="text-sm text-gray-500">{currentTrack.artist?.name}</p>
         </div>
       </div>
       <button
-        onClick={togglePlay}
+        onClick={() => setIsPlaying(!isPlaying)}
         className="bg-green-500 text-white px-3 py-2 rounded-lg"
       >
         {isPlaying ? "⏸" : "▶"}
