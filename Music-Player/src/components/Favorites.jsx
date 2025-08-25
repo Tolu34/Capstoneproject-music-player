@@ -1,17 +1,18 @@
 import React from "react";
 
-export default function TrackList({ tracks, setCurrentTrack, addToFavorites }) {
-  if (tracks.length === 0) {
-    return <p className="p-4 text-gray-500">No tracks found 🎵</p>;
+export default function Favorites({ favorites, setCurrentTrack, removeFromFavorites }) {
+  if (favorites.length === 0) {
+    return <p className="p-4 text-gray-500">No favorites yet ❤️</p>;
   }
 
   return (
     <div className="p-4 space-y-3">
-      {tracks.map((track) => (
+      {favorites.map((track) => (
         <div
           key={track.id}
           className="flex items-center justify-between bg-gray-100 p-3 rounded-lg"
         >
+          {/* Click to play */}
           <div
             className="flex items-center gap-3 cursor-pointer"
             onClick={() => setCurrentTrack(track)}
@@ -27,18 +28,12 @@ export default function TrackList({ tracks, setCurrentTrack, addToFavorites }) {
             </div>
           </div>
 
-          <button 
-              onClick={() => setCurrentTrack(track)} 
-                 className="bg-green-500 text-white px-2 py-1 rounded">
-                    ▶ 
-                    </button>
-
-          {/* Favorite button */}
+          {/* Remove button */}
           <button
-            onClick={() => addToFavorites(track)}
-            className="text-red-500 hover:scale-110 transition"
+            onClick={() => removeFromFavorites(track.id)}
+            className="text-gray-500 hover:text-red-500 transition"
           >
-            ❤️
+            ❌
           </button>
         </div>
       ))}

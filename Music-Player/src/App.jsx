@@ -1,35 +1,58 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from "react"
+import { useState } from "react";
+import Navbar from "./components/Navbar";
+import SearchBar from "./components/SearchBar";
+import TrackList from "./components/TrackList";
+
+import Player from "./components/Player";
+import Favorites from "./components/Favorites";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [tracks, setTracks] = useState([]);
+  const [currentTrack, setCurrentTrack] = useState(null);
+  const [favorites, setFavorites] = useState([]);
+  const [showFavorites, setShowFavorites] = useState(false);
+  
+   //add to favourites
+  const addToFavorites = (track) => {
+    if (!favorites.find((fav) => fav.id === track.id)) {
+      setFavorites([...favorites, track]);
+      console.log("Added to favorites:", track);
+    } else {
+      console.log("Already in favorites:", track)
+    }
+  };
+
+  //Remove from favorites 
+  
+  const removeFromFavorites = (trackId) => {
+    setFavorites(favorites.filter((fav) => fav.id !== trackId));
+    console.log(" Removed from favorites:", trackId);
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="bg-white min-h-screen text-black pb-24">
+      <Navbar showFavorites={showFavorites} setShowFavorites={setShowFavorites} />
+
+      {!showFavorites ? (
+        <>
+          <SearchBar setTracks={setTracks} />
+          <TrackList
+            tracks={tracks}
+            setCurrentTrack={setCurrentTrack}
+            addToFavorites={addToFavorites}
+          />
+        </>
+      ) : (
+        <Favorites favorites={favorites} 
+        setCurrentTrack={setCurrentTrack} 
+        removeFromFavorites={removeFromFavorites}
+        />
+      )}
+
+      <Player currentTrack={currentTrack} />
+    </div>
+  );
 }
 
-export default App
+export default App;
