@@ -6,7 +6,7 @@ export default function Favorites({ favorites, setCurrentTrack, removeFromFavori
   }
 
   return (
-    <div className="p-4 space-y-3">
+    <div className="space-y-3">
       {favorites.map((track) => (
         <div
           key={track.id}
@@ -18,7 +18,7 @@ export default function Favorites({ favorites, setCurrentTrack, removeFromFavori
             onClick={() => setCurrentTrack(track)}
           >
             <img
-              src={track.album?.cover_medium}
+              src={track.album?.cover_medium || "/images/placeholder.png"}
               alt={track.title}
               className="w-12 h-12 rounded"
             />
@@ -30,7 +30,10 @@ export default function Favorites({ favorites, setCurrentTrack, removeFromFavori
 
           {/* Remove button */}
           <button
-            onClick={() => removeFromFavorites(track.id)}
+            onClick={(e) =>  {
+              e.stopPropagation();
+              removeFromFavorites(track.id);
+            }}
             className="text-gray-500 hover:text-red-500 transition"
           >
             ❌

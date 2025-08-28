@@ -1,0 +1,67 @@
+[
+  {
+    "id": "2749192601",
+    "title": "Favourite Girl",
+    "duration": 156,
+    "preview": "https://cdnt-preview.dzcdn.net/api/1/1/e/3/e/0/e3e84ab9160f87b9b65bef48c552a1cd.mp3?hdnea=exp=1756401281~acl=/api/1/1/e/3/e/0/e3e84ab9160f87b9b65bef48c552a1cd.mp3*~data=user_id=0,application_id=42~hmac=c4ecab70d1a0086604b5e64d9839f4ca5dd4302982a99207c6c750ce85aba27f",
+    "artist": {
+      "name": "Darkoo",
+      "picture_medium":"https://cdn-images.dzcdn.net/images/artist/298b5d5b6c0ccd4665f36766fb306e36/250x250-000000-80-0-0.jpg" 
+    },
+    "album": {
+      "cover_medium": "https://cdn-images.dzcdn.net/images/cover/301c20ca99b7d3e033bf4a6626456c78/250x250-000000-80-0-0.jpg"
+    }
+  },
+  {
+    "id": "744266542",
+    "title": "Shameless",
+    "duration": 219,
+    "preview": "https://cdnt-preview.dzcdn.net/api/1/1/9/2/9/0/929bf326b287915557a2659e5f47ad66.mp3?hdnea=exp=1756404056~acl=/api/1/1/9/2/9/0/929bf326b287915557a2659e5f47ad66.mp3*~data=user_id=0,application_id=42~hmac=56c8ca84e40dda81b79885b8b438bb8f8ae093bba0002319a8155b34173d004f",
+    "artist": {
+      "name": "Camilla Cabello",
+      "picture_medium": "https://cdn-images.dzcdn.net/images/artist/4591e8a49868c2494652767f47695a90/250x250-000000-80-0-0.jpg"
+    },
+    "album": {
+      "cover_medium": "https://cdn-images.dzcdn.net/images/cover/52c6860724023d744f2b2a8c0e9e460a/250x250-000000-80-0-0.jpg"
+    }
+  },
+
+  {
+    "id": "3338867211",
+    "title":"Day By Day",
+    "preview":"https://cdnt-preview.dzcdn.net/api/1/1/5/6/4/0/564c44d10f76ac4ccdd5ed946c4b710b.mp3?hdnea=exp=1756402511~acl=/api/1/1/5/6/4/0/564c44d10f76ac4ccdd5ed946c4b710b.mp3*~data=user_id=0,application_id=42~hmac=deba17102d85deaf3dc31d074576a8875a625d5b7b4550d75e458db592df2558",
+    "artist":{
+        "name":"Simi",
+        "picture_medium":"https://cdn-images.dzcdn.net/images/artist/534c119414ab81c9d6fc105aa36f9fcc/250x250-000000-80-0-0.jpg"
+ },
+    "album":{
+        "cover_medium":"https://cdn-images.dzcdn.net/images/cover/3786075d70683431f6da3d76cb06016e/250x250-000000-80-0-0.jpg"
+    }
+  },
+
+  {
+    "id": "921894382",
+    "title":"Know You",
+    "preview":"https://cdnt-preview.dzcdn.net/api/1/1/f/0/c/0/f0c7f407bb9c1beeda99b71108055478.mp3?hdnea=exp=1756402511~acl=/api/1/1/f/0/c/0/f0c7f407bb9c1beeda99b71108055478.mp3*~data=user_id=0,application_id=42~hmac=21c9ab8a7458a0b96e196c2230b1d15ac938579bc65f86cfd063b9b08be0825d",
+    "artist":{
+        "name":"Simi ft Ladipoe",
+        "picture_medium":"https://cdn-images.dzcdn.net/images/artist/7ebc662d5bf7980ede69f04876427555/250x250-000000-80-0-0.jpg"
+ },
+    "album":{
+        "cover_medium": "https://cdn-images.dzcdn.net/images/cover/86a20f02e91122019cce88b9b21a8071/250x250-000000-80-0-0.jpg"
+    }
+  },
+
+  {
+    "id": "1705589017",
+    "title":"Running (To You)",
+    "preview":"https://cdnt-preview.dzcdn.net/api/1/1/5/d/2/0/5d2c213eb7faea586942f771f8f95e2f.mp3?hdnea=exp=1756402511~acl=/api/1/1/5/d/2/0/5d2c213eb7faea586942f771f8f95e2f.mp3*~data=user_id=0,application_id=42~hmac=190c2fa93d67acf6b1d4711b8fbb027f5292f1f3e6fc427e3224e850c990dc07",
+    "artist":{
+        "name":"Simi ft Chike",
+        "picture_medium":"https://cdn-images.dzcdn.net/images/artist/888029952c1d4f821cb161daaeffa623/250x250-000000-80-0-0.jpg"
+ },
+    "album":{
+        "cover_medium": "https://cdn-images.dzcdn.net/images/cover/40e3a5ee509b0eb13754da90dd65e1f6/250x250-000000-80-0-0.jpg"
+    }
+  }
+]

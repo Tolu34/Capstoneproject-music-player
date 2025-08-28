@@ -7,25 +7,26 @@ export default function TrackList({
   currentTrack, 
   isPlaying 
 }) {
-  if (tracks.length === 0) {
-    return <p className="p-4 text-gray-500">No tracks found </p>;
+  if (!tracks || tracks.length === 0) {
+    return <p className="p-4 text-gray-500">No tracks found</p>;
   }
 
   return (
-    <div className="p-4 space-y-3">
-      {tracks.map((track) => (
+    <div className="space-y-3">
+      {tracks.map((track, index) => (   // include index here
         <div
           key={track.id}
           className="flex items-center justify-between bg-gray-100 p-3 rounded-lg"
+          onClick={() => playTrack(track,index)}
         >
           <div
-            className="flex items-center gap-3 cursor-pointer"
-            onClick={() => playTrack(track)}
+            className="flex items-center space-x-3"
+            onClick={() => playTrack(track, index)}   //  pass index
           >
             <img
-              src={track.album?.cover_medium}
+              src={track.album?.cover_medium || "/images/placeholder.png"}
               alt={track.title}
-              className="w-12 h-12 rounded"
+              className="w-12 h-12 rounded shadow-md"
             />
             <div>
               <p className="font-semibold">{track.title}</p>
@@ -33,9 +34,9 @@ export default function TrackList({
             </div>
           </div>
 
-          {/*  Play/Pause toggle */}
+          {/* Play/Pause toggle */}
           <button
-            onClick={() => playTrack(track)}
+            onClick={() => playTrack(track, index)}   // ✅ also here
             className="bg-green-500 text-white px-2 py-1 rounded"
           >
             {currentTrack?.id === track.id && isPlaying ? "⏸" : "▶"}
@@ -43,8 +44,12 @@ export default function TrackList({
 
           {/* Favorite button */}
           <button
-            onClick={() => addToFavorites(track)}
-            className="text-red-500 hover:scale-110 transition"
+            onClick={(e) => {
+              e.stopPropagation();
+               addToFavorites(track);
+            }}
+
+            className="text-red-500 hover:text-red-400"
           >
             ❤️
           </button>

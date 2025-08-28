@@ -1,0 +1,64 @@
+[
+  {
+    "id": "1438790502",
+    "title": "Don't Go Yet",
+    "preview": "https://cdnt-preview.dzcdn.net/api/1/1/9/5/6/0/95624a7bd3e7cc3997c28696d8c0113f.mp3?hdnea=exp=1756400091~acl=/api/1/1/9/5/6/0/95624a7bd3e7cc3997c28696d8c0113f.mp3*~data=user_id=0,application_id=42~hmac=f86279018395bf6988d7d5f7cb2d9090c93463eac5a60495744f482d8d50427e",
+    "artist": {
+      "name": "Camilla Cabello",
+      "picture_medium": "https://cdn-images.dzcdn.net/images/artist/4591e8a49868c2494652767f47695a90/56x56-000000-80-0-0.jpg"
+    },
+    "album": {
+      "cover_medium": "https://cdn-images.dzcdn.net/images/artist/4591e8a49868c2494652767f47695a90/250x250-000000-80-0-0.jpg"
+    }
+  },
+  {
+    "id": "3466216111",
+    "title": "Hot Body",
+    "preview": "https://cdnt-preview.dzcdn.net/api/1/1/0/4/3/0/043886e73e5cf4f75ade3a0c6613db31.mp3?hdnea=exp=1756399881~acl=/api/1/1/0/4/3/0/043886e73e5cf4f75ade3a0c6613db31.mp3*~data=user_id=0,application_id=42~hmac=56d9637d1974df13e575c6c23a727ddcf6d7f5469d35454f7cd1b2962d76dd9f",
+    "artist": {
+      "name": "Ayra Star",
+      "picture_medium": "https://cdn-images.dzcdn.net/images/artist/dbbf92fde4a28452a455f885b065008e/250x250-000000-80-0-0.jpg"
+    },
+    "album": {
+      "cover_medium": "https://api.deezer.com/artist/14216835/top?limit=50"
+    }
+  },
+  {
+    "id": "3210661231",
+    "title": "Baby (Is it a Crime)",
+    "preview": "https://cdnt-preview.dzcdn.net/api/1/1/4/e/a/0/4ea6c318070ee7172f096421182eb3f4.mp3?hdnea=exp=1756399469~acl=/api/1/1/4/e/a/0/4ea6c318070ee7172f096421182eb3f4.mp3*~data=user_id=0,application_id=42~hmac=ae85a9e5acc2c1c12d0a6e91d2e2fdb698ad6767b36457eb94b9e1a46c1e4d2f",
+    "artist": {
+      "name": "REMA",
+      "picture_medium" : "https://api.deezer.com/artist/5259966/image"
+    },
+    "album": {
+      "cover_medium": "https://cdn-images.dzcdn.net/images/artist/43a532719f15bb18ee06fe4d0c0634bf/500x500-000000-80-0-0.jpg"
+    }
+  },
+
+  {
+    "id": "2906324471",
+    "title": "Favourite Girl (with Rema)",
+    "preview": "https://cdnt-preview.dzcdn.net/api/1/1/e/5/9/0/e59a19eb3e97e829bb4272d1aecb9114.mp3?hdnea=exp=1756401281~acl=/api/1/1/e/5/9/0/e59a19eb3e97e829bb4272d1aecb9114.mp3*~data=user_id=0,application_id=42~hmac=0e916dfa42483b7656ed8db29970b07d14e03834e91934e84efd51aeb3367bd2",
+    "artist": {
+        "name":"Darkoo",
+        "picture_medium": "https://cdn-images.dzcdn.net/images/artist/298b5d5b6c0ccd4665f36766fb306e36/250x250-000000-80-0-0.jpg"   
+    },
+    "album": {
+        "cover_medium":"https://cdn-images.dzcdn.net/images/cover/6f7959be27296229ca33841aa07d5c79/250x250-000000-80-0-0.jpg"
+    }
+  },
+  
+  {
+    "id": "60978718",
+    "title": "Diamond",
+    "preview": "https://cdnt-preview.dzcdn.net/api/1/1/d/9/a/0/d9a6e59bc4f67c830ab1df243e976e55.mp3?hdnea=exp=1756400809~acl=/api/1/1/d/9/a/0/d9a6e59bc4f67c830ab1df243e976e55.mp3*~data=user_id=0,application_id=42~hmac=54ed36e737fd5e68074730738b50eb01d532f808a8aecb6bd0ac6d169b7d08e8",
+    "artist": {
+        "name":"Rihanna",
+        "picture_medium": "https://cdn-images.dzcdn.net/images/artist/a0a911c1aec32ae2f9226491b0d52fe2/250x250-000000-80-0-0.jpg"    
+    },
+    "album": {
+        "cover_medium": "https://cdn-images.dzcdn.net/images/cover/a1b2457fcd12bb9ed5488e4bbd01ec25/250x250-000000-80-0-0.jpg"
+    }
+  }
+]
