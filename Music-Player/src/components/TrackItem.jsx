@@ -1,28 +1,32 @@
 import React from "react"
 export default function TrackItem({ track, setCurrentTrack, addToFavorites }) {
   return (
-    <div className="bg-gray-100 p-3 rounded-lg flex items-center gap-4">
+    <div className="">
       <img
         src={track.album?.cover_medium}
         alt={track.title}
-        className="w-16 h-16 rounded"
+        className=""
       />
-      <div className="flex-1">
-        <h3 className="font-semibold">{track.title}</h3>
-        <p className="text-sm text-gray-500">{track.artist?.name}</p>
+      <div className="">
+        <h3 className="">{track.title}</h3>
+        <p className="">{track.artist?.name}</p>
       </div>
+      <div className="">
       <button
         onClick={() => setCurrentTrack(track)}
-        className="bg-green-500 px-3 py-1 rounded text-white"
+        className=""
       >
+        
         ▶
+      
       </button>
       <button
         onClick={() => addToFavorites(track)}
-        className="ml-2 text-red-500"
+        className=""
       >
         ❤️
       </button>
+    </div>
     </div>
   );
 }

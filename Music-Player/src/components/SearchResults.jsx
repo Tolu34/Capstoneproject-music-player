@@ -1,20 +1,68 @@
-// SearchResults.jsx
 import React from "react";
+import { FaPlay, FaPause } from "react-icons/fa";
 
-export default function SearchResults({ results }) {
+export default function SearchResults({
+  results,
+  playTrack,
+  addToFavorites,
+  currentTrack,
+  isPlaying,
+}) {
   if (!results || results.length === 0) {
-    return <p className="p-4 text-gray-500">No results found.</p>;
+    return <p className="">No results found.</p>;
   }
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4">
-      {results.map((track) => (
-        <div key={track.id} className="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg shadow hover:shadow-lg transition">
-          <img src={track.album.cover_medium} alt={track.title} className="w-full rounded" />
-          <h3 className="mt-2 font-bold text-gray-900 dark:text-gray-100">{track.title}</h3>
-          <p className="text-gray-700 dark:text-gray-300">{track.artist.name}</p>
-        </div>
-      ))}
+    <div className="">
+      {results.map((track, index) => {
+        const isCurrent = currentTrack && currentTrack.id === track.id;
+
+        return (
+          <div
+            key={track.id}
+            className=""
+          >
+            {/* Album cover with overlay */}
+            <div className="">
+              <img
+                src={track.album.cover_medium}
+                alt={track.title}
+                className=""
+              />
+
+              {/* Play/Pause button overlay */}
+              <button
+                onClick={() => playTrack(track, index)}
+                className=""
+              >
+                {isCurrent && isPlaying ? (
+                  <FaPause className="" />
+                ) : (
+                  <FaPlay className="" />
+                )}
+              </button>
+            </div>
+
+            {/* Track info */}
+            <h3 className="">
+              {track.title}
+            </h3>
+            <p className="">
+              {track.artist.name}
+            </p>
+
+            {/* Optional Favorites button */}
+            {addToFavorites && (
+              <button
+                onClick={() => addToFavorites(track)}
+                className=""
+              >
+                ❤️ Favorite
+              </button>
+            )}
+          </div>
+        );
+      })}
     </div>
   );
 }

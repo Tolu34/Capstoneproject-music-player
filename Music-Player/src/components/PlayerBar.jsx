@@ -1,9 +1,11 @@
-import React, { useRef, useEffect, useState } from "react";
-import { FaPlay, FaPause, FaStepForward, FaStepBackward } from "react-icons/fa";
+import { useRef, useState, useEffect } from "react";
+import { FaPlay, FaPause, FaStepBackward, FaStepForward, FaListUl, FaVolumeUp } from "react-icons/fa";
+import { MdDevices } from "react-icons/md";
 
 function PlayerBar({ currentTrack, isPlaying, setIsPlaying, playNext, playPrev }) {
   const audioRef = useRef(null);
   const [progress, setProgress] = useState(0);
+  const [volume, setVolume] = useState(0.5);
 
   // Sync play/pause with state
   useEffect(() => {
@@ -31,48 +33,83 @@ function PlayerBar({ currentTrack, isPlaying, setIsPlaying, playNext, playPrev }
     }
   };
 
+  // Handle volume
+  const handleVolumeChange = (e) => {
+    const newVolume = e.target.value;
+    setVolume(newVolume);
+    if (audioRef.current) {
+      audioRef.current.volume = newVolume;
+    }
+  };
+
   return (
     currentTrack && (
-      <div className="fixed bottom-0 left-0 right-0 bg-gray-900 text-white p-4 flex items-center justify-between shadow-lg">
-        {/* Album art + info */}
-        <div className="flex items-center gap-4">
+      <div className="">
+        {/* Left: Album art + info */}
+        <div className="">
           <img
             src={currentTrack.album.cover_medium}
             alt={currentTrack.title}
-            className="w-12 h-12 rounded-md shadow-md"
+            className=""
           />
           <div>
-            <p className="font-semibold">{currentTrack.title}</p>
-            <p className="text-sm text-gray-400">{currentTrack.artist.name}</p>
+            <p className="">{currentTrack.title}</p>
+            <p className="">{currentTrack.artist.name}</p>
           </div>
         </div>
 
-        {/* Controls */}
-        <div className="flex items-center gap-6">
-          <button onClick={playPrev}>
-            <FaStepBackward size={18} />
-          </button>
-          <button
-            className="bg-green-500 w-10 h-10 rounded-full flex items-center justify-center"
-            onClick={() => setIsPlaying(!isPlaying)}
-          >
-            {isPlaying ? <FaPause size={20} /> : <FaPlay size={20} className="pl-1" />}
-          </button>
-          <button onClick={playNext}>
-            <FaStepForward size={18} />
-          </button>
+        {/* Center: Playback controls + progress */}
+        <div className="">
+          <div className="">
+            <button onClick={playPrev} className="">
+              <FaStepBackward size={18} />
+            </button>
+            <button
+              onClick={() => setIsPlaying(!isPlaying)}
+              className=""
+            >
+              {isPlaying ? <FaPause size={20} /> : <FaPlay size={20} />}
+            </button>
+            <button onClick={playNext} className="">
+              <FaStepForward size={18} />
+            </button>
+          </div>
+
+          {/* Progress bar */}
+          <div className="">
+            <span className="">0:00</span>
+            <input
+              type="range"
+              min="0"
+              max="100"
+              value={progress}
+              onChange={handleSeek}
+              className=""
+            />
+            <span className="">0:30</span>
+          </div>
         </div>
 
-        {/* Progress bar */}
-        <div className="flex-1 mx-6">
-          <input
-            type="range"
-            min="0"
-            max="100"
-            value={progress}
-            onChange={handleSeek}
-            className="w-full accent-green-500"
-          />
+        {/* Right: Extra controls */}
+        <div className="">
+          <button className="">
+            <FaListUl size={18} /> {/* Queue */}
+          </button>
+          <button className="">
+            <MdDevices size={20} /> {/* Devices */}
+          </button>
+          <div className="">
+            <FaVolumeUp size={16} className="" />
+            <input
+              type="range"
+              min="0"
+              max="1"
+              step="0.01"
+              value={volume}
+              onChange={handleVolumeChange}
+              className=""
+            />
+          </div>
         </div>
 
         {/* Hidden audio element */}
@@ -81,6 +118,7 @@ function PlayerBar({ currentTrack, isPlaying, setIsPlaying, playNext, playPrev }
           src={currentTrack.preview}
           onTimeUpdate={handleTimeUpdate}
           onEnded={playNext}
+          volume={volume}
         />
       </div>
     )
