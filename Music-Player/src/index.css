@@ -19,7 +19,11 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: #181818;
+  color: #111;
+  transition: background 0.3s, color 0.3s;
+}
+body.dark {
+  background-color: #121212;
   color: #fff;
 }
 
@@ -52,14 +56,7 @@ body {
   border-left: 1px solid #333;
 }
 
-.player-bar {
-  grid-area: player;
-  background: #181818;
-  border-top: 1px solid #333;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+
 
 /* Music grid */
 .music-grid {
@@ -236,7 +233,7 @@ body {
 
 .now-playing-container img {
   width: 60px;
-  height: 60px;
+  height: 100px;
   border-radius: 6px;
 }
 
@@ -259,40 +256,105 @@ body {
 }
 
 /* Player Bar */
-.player-controls {
+.player-bar {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  gap: 20px;
-  padding: 15px;
+  padding: 12px ;
+  background: #181818;
+  color: white;
+ 
+}
+
+.player-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.album-art {
+  width: 50px;
+  height: 50px;
+  border-radius: 6px;
+}
+
+.track-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.track-title {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.track-artist {
+  font-size: 12px;
+  color: #aaa;
+}
+
+/* Center */
+.player-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+
+.controls {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 5px;
 }
 
 .control-btn,
-.play-btn {
+.play-btn,
+.icon-btn {
   background: none;
   border: none;
-  color: #fff;
+  color: white;
   cursor: pointer;
-  font-size: 20px;
+  transition: transform 0.2s ease, color 0.2s ease;
+
 }
+.control-btn:hover,
+.play-btn:hover,
+.icon-btn:hover {
+  color: #1db954; /* Spotify green */
+  transform: scale(1.2);
+}
+
+
 
 .play-btn {
-  font-size: 28px;
-  color: #1db954;
+  font-size: 25px;
 }
 
-
-/* Dark Mode */
-:root {
-  --bg-color: #f9f9f9;
-  --text-color: #222;
-  --card-bg: #fff;
-  --hover-bg: #ddd;
+.progress-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 300px;
 }
 
-.dark {
-  --bg-color: #121212;
-  --text-color: #fff;
-  --card-bg: #222;
-  --hover-bg: #333;
+.progress-bar {
+  flex: 1;
+  cursor: pointer;
+}
+
+/* Right */
+.player-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.volume-control {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.volume-bar {
+  width: 100px
 }

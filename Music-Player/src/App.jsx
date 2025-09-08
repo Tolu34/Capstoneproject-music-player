@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import Navbar from "./components/Navbar";
 import SearchBar from "./components/SearchBar";
-import Player from "./components/Player";
 import Favorites from "./components/Favorites";
 import ToggleDarkMode from "./components/ToggleDarkMode";
 import madeForYouTracks from "./tracks.json";
@@ -11,6 +10,7 @@ import SearchResults from "./components/SearchResults";
 import NowPlaying from "./components/NowPlaying";
 import SideBar from "./components/SideBar";
 import "./index.css";
+import Player from "./components/Player";
 
 function App() {
   const [searchResults, setSearchResults] = useState([]);
@@ -23,13 +23,16 @@ function App() {
     localStorage.getItem("theme") === "dark"
   );
   const [isPlaying, setIsPlaying] = useState(false);
-
   const audioRef = useRef(new Audio());
 
+
+  
   // Dark mode toggle
   const toggleDarkMode = () => {
     document.documentElement.classList.toggle("dark");
   };
+  
+
 
   // Play track
   const playTrack = (track, index = 0, sourceTracks = []) => {
@@ -79,6 +82,7 @@ function App() {
 
   return (
     <div className="app-container">
+      
       {/* Sidebar */}
       <aside className="sidebar">
         <SideBar favorites={favorites} setShowFavorites={setShowFavorites} />
